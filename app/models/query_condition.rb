@@ -3,4 +3,5 @@ class QueryCondition < ActiveRecord::Base
 
   enum matcher: ['=', '>=', '<=', '<>']
   enum operator: ['AND', 'OR']
+  enum field: [:name, :email, :age, :state, :work_role]
 end
