@@ -1,16 +1,16 @@
 FactoryGirl.define do
   factory :query_condition do
-    field 3
+    field 'age'
     condition "condition"
-    matcher 0
+    matcher '='
     factory :query_condition_greater do
-      matcher 1
+      matcher '>='
     end
     factory :query_condition_lesser do
-      matcher 2
+      matcher '<='
     end
     factory :query_condition_not do
-      matcher 3
+      matcher '<>'
     end
   end
 end

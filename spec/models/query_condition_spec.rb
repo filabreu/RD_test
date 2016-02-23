@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe QueryCondition, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:query_condition) { build :query_condition }
+
+  it "should build a query string from field, matcher and condition" do
+    expect(query_condition.query_string).to eql "age = 'condition'"
+  end
+
 end
