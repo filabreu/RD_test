@@ -1,16 +1,45 @@
 FactoryGirl.define do
   factory :query_condition do
-    field 'age'
-    condition "condition"
+    field 'full_name'
     matcher '='
-    factory :query_condition_greater do
+    condition "John Doe"
+
+    trait :email do
+      field 'email'
+      condition "johndoe@example.com"
+    end
+
+    trait :age do
+      field 'age'
+      condition 21
+    end
+
+    trait :state do
+      field 'state'
+      condition "SC"
+    end
+
+    trait :work_role do
+      field 'work_role'
+      condition "Director"
+    end
+
+    trait :greater do
       matcher '>='
     end
-    factory :query_condition_lesser do
+
+    trait :lesser do
       matcher '<='
     end
-    factory :query_condition_not do
+
+    trait :not do
       matcher '<>'
     end
+
+    factory :query_condition_email, traits: [:email]
+    factory :query_condition_age, traits: [:age]
+    factory :query_condition_state, traits: [:state]
+    factory :query_condition_work_role, traits: [:work_role]
+
   end
 end
