@@ -24,15 +24,15 @@ ActiveRecord::Schema.define(version: 20160222143513) do
   end
 
   create_table "queries", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "operator",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "query_conditions", force: :cascade do |t|
     t.integer  "field"
     t.string   "condition"
     t.integer  "matcher",    default: 0
-    t.integer  "operator",   default: 0
     t.integer  "query_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
