@@ -15,3 +15,20 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+function selectConditionField(elem) {
+  var fields = $(elem).closest('.fields');
+  if($(elem).val() == "state") {
+    console.log($(elem).val());
+    fields.find('.query_condition_condition_text').attr('disabled', 'disabled');
+    fields.find('.query_condition_condition_select').removeAttr('disabled');
+    fields.find('.query_condition_condition_text').parent().hide();
+    fields.find('.query_condition_condition_select').parent().show();
+  } else {
+    console.log($(elem).val());
+    fields.find('.query_condition_condition_text').removeAttr('disabled');
+    fields.find('.query_condition_condition_select').attr('disabled', 'disabled');
+    fields.find('.query_condition_condition_text').parent().show();
+    fields.find('.query_condition_condition_select').parent().hide();
+  }
+}

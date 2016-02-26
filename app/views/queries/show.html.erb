@@ -1,4 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_query_path(@query) %> |
-<%= link_to 'Back', queries_path %>
+<h1>Resultado de busca</h1>
+
+<%= render 'form' %>
+<%= link_to 'Voltar', contacts_path, class: 'btn btn-primary' %>
+
+<h1>Contatos</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Estado</th>
+      <th>Idade</th>
+      <th>Cargo</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @query.result.each do |contact| %>
+      <tr>
+        <td><%= contact.full_name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.state %></td>
+        <td><%= contact.age %></td>
+        <td><%= contact.work_role %></td>
+        <td><%= link_to "remover", contact, method: :delete %></td>
+        <td><%= link_to "editar", edit_contact_path(contact) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Contato', new_contact_path, class: 'btn btn-primary' %>
+
+
+<%= link_to 'Nova Busca', new_contact_path, class: 'btn btn-primary' %>

@@ -1,18 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Contacts</h1>
+<h1>Contatos</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Estado</th>
+      <th>Idade</th>
+      <th>Cargo</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contacts.each do |contact| %>
       <tr>
-        <td><%= link_to 'Show', contact %></td>
+        <td><%= contact.full_name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.state %></td>
+        <td><%= contact.age %></td>
+        <td><%= contact.work_role %></td>
         <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
         <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -20,6 +29,18 @@
   </tbody>
 </table>
 
-<br>
+<%= link_to 'Novo Contato', new_contact_path, class: 'btn btn-primary' %>
 
-<%= link_to 'New Contact', new_contact_path %>
+<h1>Buscas</h1>
+
+<table class="table">
+  <tbody>
+    <% @queries.each do |query| %>
+      <tr>
+        <td><%= link_to "Busca #{query.id}", query %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nova Busca', new_query_path, class: 'btn btn-primary' %>

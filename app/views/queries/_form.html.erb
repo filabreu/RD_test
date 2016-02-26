@@ -11,7 +11,20 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    <%= f.select :operator, [["Todas as condições", "AND"], ["Qualquer uma das condições", "OR"]], {}, { class: 'form-control' } %>
+  </div>
+
+  <div>
+    <%= f.fields_for :query_conditions do |builder| %>
+      <%= render 'query_condition_fields', f: builder %>
+    <% end %>
+    <div style="margin: 10px 0px;">
+      <%= link_to_add_fields "Adicionar condição", f, :query_conditions, { class: 'btn btn-primary' } %>
+    </div>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Buscar", class: 'btn btn-primary' %>
   </div>
 <% end %>

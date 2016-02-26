@@ -11,28 +11,28 @@
     </div>
   <% end %>
 
-  <div>
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name %>
+  <div class="form-group">
+    <%= f.label :full_name, "Nome" %><br />
+    <%= f.text_field :full_name, class: 'form-control' %>
   </div>
-  <div>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+  <div class="form-group">
+    <%= f.label :email, "E-mail" %><br />
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
-  <div>
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
+  <div class="form-group">
+    <%= f.label :age, "Idade" %><br />
+    <%= f.text_field :age, class: 'form-control' %>
   </div>
-  <div>
-    <%= f.label :work_role %><br />
-    <%= f.text_field :work_role %>
+  <div class="form-group">
+    <%= f.label :work_role, "Cargo" %><br />
+    <%= f.text_field :work_role, class: 'form-control' %>
   </div>
-  <div>
-    <%= f.label :state %><br />
-    <%= f.select :state, Contact.states %>
+  <div class="form-group">
+    <%= f.label :state, "Estado" %><br />
+    <%= f.select :state, Contact.states, { prompt: "Escolha um Estado" }, { class: 'form-control' } %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Criar contato", class:"btn btn-primary" %>
   </div>
 <% end %>
