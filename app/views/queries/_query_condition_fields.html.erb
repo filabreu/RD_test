@@ -1,0 +1,17 @@
+<div class="form-inline fields" style="margin: 10px 0px;">
+  <div class="form-group">
+    <%= f.select :field, [["Nome", "full_name"], ["E-mail", "email"], ["Idade", "age"], ["Estado", "state"], ["Cargo", "work_role"]], {}, { onchange: 'selectConditionField(this)', class: 'quer_condition_field form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.select :matcher, QueryCondition.matchers.keys, {}, { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :condition, class: 'query_condition_condition_text form-control' %>
+  </div>
+  <div class="form-group" style="display: none;">
+    <%= f.select :condition, Contact.states, { }, { class: 'query_condition_condition_select form-control', disabled: 'disabled' } %>
+  </div>
+  <div class="form-group">
+    <%= link_to_remove_fields "x", f %>
+  </div>
+</div>

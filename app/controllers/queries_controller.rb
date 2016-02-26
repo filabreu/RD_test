@@ -69,6 +69,6 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params.fetch(:query, {})
+      params.require(:query).permit(:operator, query_conditions_attributes: [:field, :matcher, :condition, :_destroy])
     end
 end

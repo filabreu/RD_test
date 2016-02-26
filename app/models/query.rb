@@ -3,6 +3,8 @@ class Query < ActiveRecord::Base
 
   enum operator: ['AND', 'OR']
 
+  accepts_nested_attributes_for :query_conditions
+
   def result
     Contact.where(query_string)
   end
